@@ -8,3 +8,4 @@
 <li>Click on my account and login with credentials: user@phptravels.com/demouser</li>
 <li>Click on invoice and verify page has “INVOICE“ text.</li>
 </ul>
+<h3>Script Link : cypress/integration/navigateAndLogin.js</h3>
