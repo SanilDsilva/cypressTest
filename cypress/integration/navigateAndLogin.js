@@ -6,21 +6,21 @@ context('Cypress interview question', () => {
     })
 
 
-    it('Check for title', () => {
+    it('Check for Page Title', () => {
         cy.get('head title') //find title in DOM
             // .should('contain', 'Demo Script Test drive - PHPTRAVELS')
-        .should('contain', 'APPLICATION TEST DRIVE')
+            .should('contain', 'APPLICATION TEST DRIVE')
 
     })
 
 
-    it('solution #1: verify the href, dont click through', () => {
+    it('Find phptravels.net and navigate', () => {
         //   cy.xpath('.//*[text()="http://www.phptravels.net"]')
         //   .should('contain','http://www.phptravels.net')
         //   .invoke('removeAttr', 'target').click()
-        
+
         // Remove traget from <a> to open it on same tab
-        cy.get('a').invoke('removeAttr', 'target') 
+        cy.get('a').invoke('removeAttr', 'target')
         cy.get('a').find('small')
             .contains('http://www.phptravels.net')
             .click()
@@ -34,6 +34,7 @@ context('Cypress interview question', () => {
     //     });
     // });
 
+
     it('Go to My Account and Login', () => {
         cy.get('.full-screen-preview__frame')
             .then(($iframe) => {
@@ -46,15 +47,15 @@ context('Cypress interview question', () => {
                 cy.wrap($body)
                     .find('a')
                     .contains('Login').click({ force: true })
-
             })
-
     })
 
 
     it('Enter Login Credentials ', () => {
         //wait to render all the elements because it is iframe of different domain.
         cy.wait(3000)
+
+        //Get all thecontent of iframe
         cy.get('.full-screen-preview__frame')
             .then(($iframe) => {
                 const $body = $iframe.contents().find('body')
@@ -67,21 +68,15 @@ context('Cypress interview question', () => {
                     .find('[name="password"]')
                     .type('demouser')
 
-
                 cy.wrap($body)
                     .find('button.btn.btn-action.btn-lg.btn-block.loginbtn')
                     .click()
-
-
             })
-
     })
 
 
-
-    it('Get invoice', () => {
+    it('Check for Invoice', () => {
         cy.wait(5000)
-
         cy.get('.full-screen-preview__frame')
             .then(($iframe) => {
                 const $body = $iframe.contents().find('body')
@@ -89,32 +84,20 @@ context('Cypress interview question', () => {
                     .find('a').contains('Invoice').
                     invoke('removeAttr', 'target')
                     .click()
-
-
-
             })
-
     })
 
 
-    it('verify invoice', () => {
-        cy.wait(3000)
+    it('Verfiy page has INVOICE', () => {
+        cy.wait(5000)
 
         cy.get('.full-screen-preview__frame')
             .then(($iframe) => {
                 const $body = $iframe.contents().find('body')
                 cy.wrap($body)
                     .find('div').contains('Invoice')
-                   
-                             
+            })
+     })
 
-
-                
-                })
-
-    })
-
-
-
-    })
+})
 
