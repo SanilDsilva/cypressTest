@@ -53,7 +53,7 @@ context('Cypress interview question', () => {
 
     it('Enter Login Credentials ', () => {
         //wait to render all the elements because it is iframe of different domain.
-        cy.wait(3000)
+        cy.wait(5000)
 
         //Get all thecontent of iframe
         cy.get('.full-screen-preview__frame')
@@ -79,7 +79,7 @@ context('Cypress interview question', () => {
         cy.wait(5000)
         cy.get('.full-screen-preview__frame')
             .then(($iframe) => {
-                const $body = $iframe.contents().find('body')
+                const $body = $iframe.contents()    .find('body')
                 cy.wrap($body)
                     .find('a').contains('Invoice').
                     invoke('removeAttr', 'target')
