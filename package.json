@@ -1,0 +1,15 @@
+{
+  "name": "cypress-interview",
+  "version": "1.0.0",
+  "description": "cypress test case",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sanil",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.4.1",
+    "cypress-xpath": "^1.4.0"
+  }
+}
